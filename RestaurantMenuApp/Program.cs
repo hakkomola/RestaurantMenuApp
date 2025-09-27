@@ -4,6 +4,7 @@ using RestaurantMenuApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // MySQL bağlantısı
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
