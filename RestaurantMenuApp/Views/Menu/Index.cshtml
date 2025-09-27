@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RestaurantMenuApp.Models.Category>
+
+<h2>Menülerim</h2>
+
+@foreach (var category in Model)
+{
+    <h3>@category.Name</h3>
+    <div class="row">
+        @foreach (var item in category.MenuItems)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" class="card-img-top" style="height:150px; object-fit:cover;" />
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p class="card-text"><strong>₺@item.Price</strong></p>
+                        <a href="/Menu/Edit/@item.Id" class="btn btn-sm btn-primary">Düzenle</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

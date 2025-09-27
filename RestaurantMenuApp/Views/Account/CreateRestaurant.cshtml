@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Restoran Oluştur";
+}
+
+<div class="container mt-5">
+    <h2>@ViewData["Title"]</h2>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">@ViewBag.Message</div>
+    }
+    <form method="post">
+        <div class="mb-3">
+            <label>Restoran İsmi</label>
+            <input type="text" name="name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Şifre</label>
+            <input type="password" name="password" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-success">Oluştur</button>
+    </form>
+</div>

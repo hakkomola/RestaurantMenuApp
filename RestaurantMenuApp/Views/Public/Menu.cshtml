@@ -1,0 +1,32 @@
+﻿@model List<RestaurantMenuApp.Models.Category>
+@{
+    ViewData["Title"] = ViewBag.RestaurantName + " Menüsü";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">@ViewBag.RestaurantName Menüsü</h1>
+    <hr />
+
+    @foreach (var category in Model)
+    {
+        <h3 class="mt-4">@category.Name</h3>
+        <div class="row">
+            @foreach (var item in category.MenuItems)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <img src="@item.ImageUrl" class="card-img-top" style="height:200px; object-fit:cover;" />
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                            <p class="card-text">@item.Description</p>
+                            <p class="fw-bold">@item.Price.ToString("0.00") ₺</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
